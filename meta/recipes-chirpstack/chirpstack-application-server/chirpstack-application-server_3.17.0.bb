@@ -4,7 +4,7 @@ PRIORITY = "optional"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=5301050fd7cd58850085239d559297be"
 SRC_URI = " \
-    git://git@github.com/brocaar/chirpstack-application-server.git;protocol=https;tag=v${PV}; \
+    git://git@github.com/rtsoft-gmbh/chirpstack-application-server.git;protocol=https;branch=${SRCBRANCH};  \
     file://chirpstack-application-server.toml \
     file://chirpstack-application-server.init \
     file://chirpstack-application-server.monit \
@@ -15,6 +15,9 @@ inherit update-rc.d goarch
 
 INITSCRIPT_NAME = "chirpstack-application-server"
 INITSCRIPT_PARAMS = "defaults"
+
+SRCBRANCH = "feature/tls"
+SRCREV = "${AUTOREV}"
 
 S = "${WORKDIR}/git"
 
